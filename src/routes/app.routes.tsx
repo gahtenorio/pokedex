@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 import {
   createNativeStackNavigator,
   NativeStackNavigationProp,
-} from "@react-navigation/native-stack";
+} from '@react-navigation/native-stack';
 
-import { Home } from "../screens/Home";
+import { Home } from '../screens/Home';
 
 export type RoutesParamList = {
   Home: undefined;
@@ -19,7 +19,7 @@ export function AppRoutes() {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-        animation: "slide_from_right",
+        animation: 'slide_from_right',
       }}
     >
       <Stack.Screen name="Home" component={Home} />

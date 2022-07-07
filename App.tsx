@@ -1,9 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import {
-  useFonts,
-  Roboto_400Regular,
-  Roboto_700Bold,
-} from '@expo-google-fonts/roboto';
+import { Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import { View } from 'react-native';
@@ -12,7 +8,6 @@ import { AppProvider } from './src/hooks';
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
-  console.log(appIsReady);
 
   useEffect(() => {
     async function prepare() {

@@ -4,6 +4,7 @@ declare module 'styled-components/native' {
   export interface DefaultTheme {
     colors: {
       background: string;
+      input_background: string;
       text_primary: string;
       text_secondary: string;
       text_ternary: string;

@@ -4,11 +4,11 @@ import { StatusBar, useColorScheme } from 'react-native';
 import { ThemeProvider } from 'styled-components/native';
 import themes from '../themes';
 
-type AppProvider = {
+type AppProviderProps = {
   children: ReactNode;
 };
 
-export function AppProvider({ children }: AppProvider) {
+export function AppProvider({ children }: AppProviderProps) {
   const deviceTheme = useColorScheme();
   const theme = (deviceTheme && themes[deviceTheme]) || themes.light;
 
@@ -29,7 +29,7 @@ export function AppProvider({ children }: AppProvider) {
                 : themes.dark.colors.background)) ||
             themes.light.colors.background
           }
-        /> 
+        />
       </NavigationContainer>
     </ThemeProvider>
   );

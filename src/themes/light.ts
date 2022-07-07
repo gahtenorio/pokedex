@@ -1,6 +1,7 @@
 export default {
   colors: {
     background: '#FFFFFF',
+    input_background: '#F2F2F2',
     text_primary: '#000000',
     text_secondary: '#FFFFFF',
     text_ternary: '#747476',
