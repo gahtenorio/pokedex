@@ -3,6 +3,7 @@ import React, { ReactNode } from 'react';
 import { StatusBar, useColorScheme } from 'react-native';
 import { ThemeProvider } from 'styled-components/native';
 import themes from '../themes';
+import { PokeProvider } from './usePoke';
 
 type AppProviderProps = {
   children: ReactNode;
@@ -15,21 +16,23 @@ export function AppProvider({ children }: AppProviderProps) {
   return (
     <ThemeProvider theme={theme}>
       <NavigationContainer>
-        {children}
-        <StatusBar
-          barStyle={
-            (deviceTheme &&
-              (deviceTheme === 'light' ? 'dark-content' : 'light-content')) ||
-            'dark-content'
-          }
-          backgroundColor={
-            (deviceTheme &&
-              (deviceTheme === 'light'
-                ? themes.light.colors.background
-                : themes.dark.colors.background)) ||
-            themes.light.colors.background
-          }
-        />
+        <PokeProvider>
+          {children}
+          <StatusBar
+            barStyle={
+              (deviceTheme &&
+                (deviceTheme === 'light' ? 'dark-content' : 'light-content')) ||
+              'dark-content'
+            }
+            backgroundColor={
+              (deviceTheme &&
+                (deviceTheme === 'light'
+                  ? themes.light.colors.background
+                  : themes.dark.colors.background)) ||
+              themes.light.colors.background
+            }
+          />
+        </PokeProvider>
       </NavigationContainer>
     </ThemeProvider>
   );

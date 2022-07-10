@@ -33,6 +33,8 @@
       "no-use-before-define": "off",
       "import/no-extraneous-dependencies": "off",
       "camelcase": "off",
+      "no-unused-expressions": "off",
+      "react/jsx-no-bind":  "off",
       "react/jsx-filename-extension": [
         1,
         {
