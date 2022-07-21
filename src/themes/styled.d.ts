@@ -48,6 +48,7 @@ declare module 'styled-components/native' {
 
     fonts: {
       roboto_regular: string;
+      roboto_medium: string;
       roboto_bold: string;
     };
   }

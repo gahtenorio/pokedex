@@ -1,21 +1,24 @@
 import { PokeAbility } from './pokeAbility';
-import { PokeMove } from './pokeMove';
-import { PokeSprites } from './pokeSprites';
+import { PokeEvolution } from './pokeEvolution';
+import { PokelocationAreaEncounters } from './pokelocationAreaEncounters';
 import { PokeStatus } from './pokeStatus';
-import { PokeType } from './pokeType';
+import { PokeType, PokeTypes } from './pokeType';
 
 export type PokeDetail = {
-  id: string;
+  id: number;
   name: string;
-  types: Array<{
-    type: PokeType;
-  }>;
-  abilities: Array<{
-    ability: PokeAbility;
-  }>;
-  moves: Array<{
-    move: PokeMove;
-  }>;
+  height: number;
+  weight: number;
+  capture_rate: number;
+  growth_rate: string;
+  base_experience: number;
+  poke_species: string;
+  egg_groups: Array<string>;
+  evolution_chain: PokeEvolution;
+  types: PokeTypes[];
+  abilities: PokeAbility[];
   stats: PokeStatus[];
-  sprites: PokeSprites;
+  sprites: string;
+  location_area_encounters: PokelocationAreaEncounters[];
+  weakness: PokeType[];
 };

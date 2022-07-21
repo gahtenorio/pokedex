@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from '../../components/Card';
 import { Header } from '../../components/Header';
+import { Loading } from '../../components/Loading';
 import { usePoke } from '../../hooks/usePoke';
-import { PokeList } from '../../types/pokeList';
+import { Poke } from '../../types/poke';
 
 import {
   Container,
@@ -18,7 +19,7 @@ import {
 
 export function Home() {
   const { getPokes, isLoading } = usePoke();
-  const [pokes, setPokes] = useState<PokeList[]>([]);
+  const [pokes, setPokes] = useState<Poke[]>([]);
   const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(false);
 
@@ -29,7 +30,7 @@ export function Home() {
 
     setLoading(true);
     const pokesData = await getPokes(offset);
-    const newPokes: PokeList[] = [...pokes, ...pokesData];
+    const newPokes: Poke[] = [...pokes, ...pokesData];
 
     setPokes(newPokes);
     setOffset(offset + 40);
@@ -40,11 +41,7 @@ export function Home() {
     loadPokes();
   }, []);
 
-  if (isLoading) {
-    return null;
-  }
-
-  const renderItem = (poke: PokeList) => <Card name={poke.name} />;
+  const renderItem = (poke: Poke) => <Card poke={poke} />;
 
   return (
     <Container>
@@ -53,26 +50,30 @@ export function Home() {
       <Content>
         <Title>Pokédex</Title>
         <Info>
-          Pesquise um Pokémon pelo nome ou usando o número National Pokédex
+          Search for Pokémon by name or using the National Pokédex number.
         </Info>
         <InputArea>
           <SearchIcon name="search" />
-          <Input placeholder="Qual Pokémon você está procurando?" />
+          <Input placeholder="What Pokémon are you looking for?" />
         </InputArea>
 
-        {pokes.length !== 0 && (
-          <ListPokes
-            onEndReached={loadPokes}
-            onEndReachedThreshold={0.4}
-            data={pokes}
-            initialNumToRender={40}
-            maxToRenderPerBatch={100}
-            updateCellsBatchingPeriod={10}
-            removeClippedSubviews
-            windowSize={80}
-            keyExtractor={poke => poke.name}
-            renderItem={({ item: poke }) => renderItem(poke)}
-          />
+        {isLoading ? (
+          <Loading />
+        ) : (
+          pokes.length !== 0 && (
+            <ListPokes
+              onEndReached={loadPokes}
+              onEndReachedThreshold={0.5}
+              data={pokes}
+              initialNumToRender={40}
+              maxToRenderPerBatch={100}
+              updateCellsBatchingPeriod={10}
+              removeClippedSubviews
+              windowSize={80}
+              keyExtractor={poke => poke.name}
+              renderItem={({ item: poke }) => renderItem(poke)}
+            />
+          )
         )}
       </Content>
     </Container>

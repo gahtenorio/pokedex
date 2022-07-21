@@ -1,4 +1,6 @@
 export type PokeAbility = {
-  name: string;
-  url: string;
+  ability: {
+    name: string;
+  };
+  is_hidden: boolean;
 };

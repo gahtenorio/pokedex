@@ -19,3 +19,7 @@ export type PokeType = {
     | 'steel'
     | 'water';
 };
+
+export type PokeTypes = {
+  type: PokeType;
+};

@@ -46,5 +46,6 @@ export default {
   fonts: {
     roboto_regular: 'Roboto_400Regular',
     roboto_bold: 'Roboto_700Bold',
+    roboto_medium: 'Roboto_500Medium',
   },
 };

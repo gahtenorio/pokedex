@@ -35,6 +35,7 @@
       "camelcase": "off",
       "no-unused-expressions": "off",
       "react/jsx-no-bind":  "off",
+      "no-nested-ternary": "off",
       "react/jsx-filename-extension": [
         1,
         {

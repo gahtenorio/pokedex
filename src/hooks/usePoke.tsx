@@ -7,15 +7,15 @@ import React, {
 } from 'react';
 import { api } from '../services/api';
 import { PokeDetail } from '../types/PokeDetail';
-import { PokeList } from '../types/pokeList';
+import { Poke } from '../types/poke';
 
 type PokeProviderProps = {
   children: ReactNode;
 };
 
 type PokeContextData = {
-  getPokes: (offset: number) => Promise<PokeList[]>;
-  getPokeDetail: (name: string) => Promise<PokeDetail>;
+  getPokes: (offset: number) => Promise<Poke[]>;
+  getPokeDetail: (id: number) => Promise<PokeDetail>;
   isLoading: boolean;
 };
 
@@ -26,24 +26,21 @@ function PokeProvider({ children }: PokeProviderProps) {
 
   const getPokes = useCallback(async (offset: number) => {
     try {
-      const response = await api.get('pokemon', {
-        params: {
-          offset,
-          limit: 40,
-        },
-      });
+      const response = await api.get(`${offset}/40`);
+
+      const pokeData: Poke[] = response.data;
 
       setIsLoading(false);
-      return response.data.results;
+      return pokeData;
     } catch (error) {
       setIsLoading(false);
       return null;
     }
   }, []);
 
-  const getPokeDetail = useCallback(async (name: string) => {
+  const getPokeDetail = useCallback(async (id: number) => {
     try {
-      const response = await api.get(`pokemon/${name}`);
+      const response = await api.get(`${id}`);
       return response.data;
     } catch (error) {
       return null;

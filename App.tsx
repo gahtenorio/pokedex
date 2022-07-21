@@ -1,5 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto';
+import {
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+} from '@expo-google-fonts/roboto';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import { View } from 'react-native';
@@ -15,6 +19,7 @@ export default function App() {
         await SplashScreen.preventAutoHideAsync();
         await Font.loadAsync({
           Roboto_400Regular,
+          Roboto_500Medium,
           Roboto_700Bold,
         });
       } catch (e) {

@@ -53,7 +53,7 @@ export const Input = styled.TextInput.attrs({
   placeholderTextColor: '#747474',
 })`
   flex: 1;
-  font-size: ${RFValue(16)}px;
+  font-size: ${RFValue(14)}px;
   color: ${({ theme }) => theme.colors.text_primary};
 `;
 
