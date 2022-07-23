@@ -27,6 +27,8 @@ export const HeaderTitle = styled.Text<contentSelected>`
   font-family: ${({ theme }) => theme.fonts.roboto_regular};
   color: ${({ theme }) => theme.colors.text_secondary};
   opacity: 0.7;
+  width: 80px;
+  text-align: center;
 
   ${props =>
     props.contentSelected &&

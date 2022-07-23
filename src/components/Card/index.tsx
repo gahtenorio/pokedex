@@ -22,6 +22,7 @@ import {
   PokeTypeName,
 } from './styles';
 import { Poke } from '../../types/poke';
+import { formattedId } from '../../utils/formatId';
 
 type CardProps = {
   poke: Poke;
@@ -35,12 +36,6 @@ export function Card({ poke }: CardProps) {
     navigation.navigate('PokeDetail', {
       poke,
     });
-  }
-
-  function formattedId(id: number) {
-    const idFormatted = `000${String(id)}`.slice(-3);
-
-    return idFormatted;
   }
 
   return (
@@ -57,7 +52,7 @@ export function Card({ poke }: CardProps) {
       <Points />
 
       <PokeDetails>
-        <PokeId>#{formattedId(poke.id)}</PokeId>
+        <PokeId>{formattedId(poke.id)}</PokeId>
         <PokeName>{poke.name}</PokeName>
         <PokeTypeArea>
           {poke.types.map(types => (

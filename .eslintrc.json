@@ -36,6 +36,8 @@
       "no-unused-expressions": "off",
       "react/jsx-no-bind":  "off",
       "no-nested-ternary": "off",
+      "array-callback-return": "off",
+      "no-shadow": "off",
       "react/jsx-filename-extension": [
         1,
         {

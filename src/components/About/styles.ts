@@ -10,7 +10,6 @@ export const InfoArea = styled.View`
   flex-direction: row;
   align-items: center;
   width: 100%;
-  flex-wrap: wrap;
   margin-top: 20px;
 `;
 
@@ -29,6 +28,8 @@ export const Value = styled.Text<ValueProps>`
   font-size: ${RFValue(16)}px;
   font-family: ${({ theme }) => theme.fonts.roboto_regular};
   color: ${({ theme }) => theme.colors.text_ternary};
+  text-transform: capitalize;
+  max-width: 220px;
 
   ${({ isHidden }) =>
     isHidden &&

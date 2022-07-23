@@ -21,4 +21,5 @@ export type PokeDetail = {
   sprites: string;
   location_area_encounters: PokelocationAreaEncounters[];
   weakness: PokeType[];
+  strongness: PokeType[];
 };

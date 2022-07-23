@@ -5,6 +5,7 @@ import { BackButton } from '../../components/BackButton';
 import { IconType } from '../../components/IconType';
 import { PokeInfoData } from '../../components/PokeInfoData';
 import { RoutesParamList } from '../../routes/app.routes';
+import { formattedId } from '../../utils/formatId';
 import {
   cardBackgroundByType,
   typeBackgroundByType,
@@ -38,12 +39,6 @@ export function PokeDetail() {
     theme: (deviceTheme && deviceTheme) || 'light',
   });
 
-  function formattedId(id: number) {
-    const idFormatted = `000${String(id)}`.slice(-3);
-
-    return idFormatted;
-  }
-
   return (
     <Container backgroundColor={backgroundColor}>
       <StatusBar backgroundColor={backgroundColor} />
@@ -60,7 +55,7 @@ export function PokeDetail() {
         </PokeImageArea>
 
         <PokeInfo>
-          <PokeId>#{formattedId(poke.id)}</PokeId>
+          <PokeId>{formattedId(poke.id)}</PokeId>
           <PokeName>{poke.name}</PokeName>
           <PokeTypeArea>
             {poke.types.map(types => (

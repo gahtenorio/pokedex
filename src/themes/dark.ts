@@ -5,6 +5,7 @@ export default {
     text_primary: '#FFFFFF',
     text_secondary: '#000000',
     text_ternary: '#747476',
+    arrow_evolution: '#F1F1F1',
     type_bug: '#8CB330',
     background_type_bug: '#8BD674',
     type_dark: '#58575F',

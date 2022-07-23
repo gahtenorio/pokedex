@@ -8,6 +8,7 @@ declare module 'styled-components/native' {
       text_primary: string;
       text_secondary: string;
       text_ternary: string;
+      arrow_evolution: string;
       type_bug: string;
       background_type_bug: string;
       type_dark: string;

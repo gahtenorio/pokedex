@@ -21,6 +21,7 @@ import Water from '../../assets/icons/water.svg';
 
 type InconTypeProps = {
   type:
+    | string
     | 'bug'
     | 'dark'
     | 'fire'

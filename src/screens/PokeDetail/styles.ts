@@ -7,8 +7,12 @@ type ContainerProps = {
   backgroundColor: string;
 };
 
-export const Container = styled.View<ContainerProps>`
-  flex: 1;
+export const Container = styled.ScrollView.attrs({
+  showsVerticalScrollIndicator: false,
+  contentContainerStyle: {
+    flexGrow: 1,
+  },
+})<ContainerProps>`
   background-color: ${props => props.backgroundColor};
   padding-top: 20px;
 `;
