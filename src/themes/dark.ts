@@ -1,8 +1,8 @@
 export default {
   colors: {
-    background: '#000000',
-    input_background: '#F2F2F2',
-    text_primary: '#FFFFFF',
+    background: '#191919',
+    input_background: '#666666',
+    text_primary: '#F2F2F2',
     text_secondary: '#000000',
     text_ternary: '#747476',
     arrow_evolution: '#F1F1F1',
